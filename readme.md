@@ -1,13 +1,16 @@
 
-## Flsun V400 Overhaul in Accordance with Klipper Standards / Delta ##
+## Flsun V400/SR Overhaul in Accordance with Klipper Standards / Delta ## STATE UPDATING USE RELEASES. 
 
 
 Configuration Variants:
-1. OEM Klipper Vanilla: Raspberry Pi with general Linux or reinstalled Speeder-pad.
-2. Flsun Speederspad Klipper: Includes many changes to core Klipper files.
+1. OFFICIAL Klipper: Raspberry Pi , BTTPI PAD7 or general Linux device. Otherwse reinstalled Speeder-pad with OFFICIAL Projects. 
+2. Flsun Speederspad Klipper: Includes many changes to core Klipper files. - conflicting docs i wont make any Further updates due to tramming disabled / official klipper project "ban" / docs conflicts among other false posts about Official project issues.
+This is simply to much hastle for users , devs and, the official klipper team to deal with daily.  
+
 
 Note:
-On some printers, it may be necessary to temporarily increase 'minimum_z_position' to -5 for the initial setup to run 'probe_calibrate' due to varying quality control. Once completed, it should be set to the default value or around 0.6-1mm. The first 'save_config' will add a section to 'printer.cfg' with calibrated overrides such as 'zoffset', 'delta_calibrate', etc.
+On some printers, it may be necessary to temporarily increase 'minimum_z_position' to -10 for the initial setup to run 'probe_calibrate' due to varying quality control. Once "calibrate macro completes the nozzle will be babystepped 0.2 high to avoid scrapes on pei if user manual probe_calibrate went a bit wrong simply babystep down frist print. if all went well the values is typically some range of 0.05-0.0-0.1. The first 'save_config' will add a section to 'printer.cfg' with calibrated overrides such as 'zoffset', 'delta_calibrate', etc. Furhter note. tramming (delta_calibrate)  does have limits it expects the printer to be well assembled / square to work. only then will bed mesh be "accurate" mesh is only a "supplement" to deal with slight topograpy issues with the bed. 
+a delta should never rely on this. Ideally on a fully set up/fine tuned machine fade can be enabled and set to turn mesh off after the first few layers. This avoids the machine needing to constantly adjust z on every move. (this causes odd issues / artiiacts / dimension issues otherwise) If you feel you need more then 11 points, on mesh its time to check the machine for mechanical problems. 
 
 What's New?
 1. V400 trams in accordance with delta docs. if using "vanila" klipper of the website is installed." Otherwise not much from the original sr configs. 
@@ -16,16 +19,21 @@ What's New?
 
 3. Spread cycle and stealth chops: According to TMC docs, spread cycle is the most accurate but also louder. The mode can be set in start G-code or manually selected.
 4. Safe homing.
-5. Extruder gear ratio.
 6. TMC spreadsheet tuning.
 7. Auto-saving baby step based on Mental's XYZ offset macro.
-8. Heavy-duty input shaper tuning.
 9. Raspberry Pi Pico ADXL support.
-10. Ideamaker profiles.
 11. Properly functioning bed mesh.
 12. Revised macros to remove redundancy.
 13. Effector LED turns on when running G28.
-14. Automated calibration (endstop, delta_calibrate, bed_mesh). Preheat the bed before using this. The probe must be on.
+14. RGB EFFECTOR PCB support
+15. Filament drying
+16. Profile overrides
+17. Multiple effector / extruder support.
+18. Tool change
+19. Thermal runaway....is renabled.
+20. Z velocity cannot crash into the bed at 600-400mms........
+21. built in flow / rotation distance calculators
+23. Automated calibration (endstop, delta_calibrate, bed_mesh). Preheat the bed before using this. The probe must be on.
 
 
 
